@@ -1,0 +1,42 @@
+body {
+  background-color: #fff;
+  margin: 0;
+}
+#enblock {
+  position: relative;
+}
+.block-1 {
+  height: 400px;
+  background-color: #F44336;
+}
+.block-2 {
+  height: 600px;
+  background-color: #2196F3;
+}
+.block-3 {
+  height: 100vh;
+  background-color: #00BCD4;
+}
+.block-4 {
+  height: 1600px;
+  background-color: #8BC34A;
+}
+.block-5 {
+  height: 800px;
+  background-color: #FFC107;
+}
+.block-6 {
+  height: 200px;
+  background-color: #757575;
+}
+.wrap {
+  width: 960px;
+  margin: auto;
+  color: #ccc;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}

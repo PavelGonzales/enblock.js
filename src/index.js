@@ -1,8 +1,13 @@
-export default class Library {
-  constructor() {
-    this._name = 'Library';
-  }
-  get name() {
-    return this._name;
-  }
-}
+export default (elem) => {
+
+  const elems = Array.prototype.slice.call(elem.children); // Делаем из коллекции детей массив
+  let data = [];
+
+  elems.forEach((item, i) => {
+    data.push({
+      name: 'block-' + (i + 1),
+      height: item.offsetHeight
+    });
+  });
+  console.log(data);
+};
