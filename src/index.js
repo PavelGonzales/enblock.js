@@ -9,5 +9,21 @@ export default (elem) => {
       height: item.offsetHeight
     });
   });
+
+  detectScrollDirection(); //eslint-disable-line
   console.log(data);
+};
+
+const detectScrollDirection = () => {
+  window.onscroll = () => {
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    let prevPosition = 0;
+    let result;
+
+    if (prevPosition < scrolled) {
+      result = 'down';
+    }
+    console.log(scrolled);
+    return result;
+  };
 };
