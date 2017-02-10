@@ -11,19 +11,23 @@ export default (elem) => {
   });
 
   detectScrollDirection(); //eslint-disable-line
-  console.log(data);
 };
 
-const detectScrollDirection = () => {
-  window.onscroll = () => {
-    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    let prevPosition = 0;
-    let result;
+function detectScrollDirection() {
+  let newValue = 0;
+  let oldValue = 0;
 
-    if (prevPosition < scrolled) {
-      result = 'down';
-    }
-    console.log(scrolled);
-    return result;
+  function newPosition() {
+    newValue = window.pageYOffset || document.documentElement.scrollTop;
+    return newValue;
+  };
+  function oldPosition() {
+    oldValue = newPosition();
+    return oldValue;
+  };
+  window.onscroll = () => {
+    newPosition();
+    oldPosition();
+    console.log(newPosition(), oldPosition());
   };
 };
