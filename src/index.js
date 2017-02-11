@@ -10,24 +10,22 @@ export default (elem) => {
     });
   });
 
-  detectScrollDirection(); //eslint-disable-line
+  detectScrollDirection();
 };
 
 function detectScrollDirection() {
-  let newValue = 0;
   let oldValue = 0;
-
-  function newPosition() {
-    newValue = window.pageYOffset || document.documentElement.scrollTop;
-    return newValue;
-  };
-  function oldPosition() {
-    oldValue = newPosition();
-    return oldValue;
-  };
+  let direction;
   window.onscroll = () => {
-    newPosition();
-    oldPosition();
-    console.log(newPosition(), oldPosition());
+    let newValue = window.pageYOffset || document.documentElement.scrollTop;
+    if (newValue > oldValue) {
+      direction = 1; // Скролим вниз
+    } else {
+      direction = -1; // Скролим вверх
+    }
+    oldValue = newValue;
+
+    console.log(direction);
+    return direction; 
   };
 };
